@@ -2,11 +2,11 @@
   "nodes": {
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1661440621,
-        "narHash": "sha256-BcokGMf6v8sj42jU7/dSLb5iwwkcqG4guRhBihKqpxc=",
+        "lastModified": 1661668946,
+        "narHash": "sha256-nFg9LXbZR6AS0Il5aGP0Uq1M+DeM0k7ZND9BjrmYQLk=",
         "owner": "kekrby",
         "repo": "nixos-hardware",
-        "rev": "761380586df33b1d2f31c56784c1ce9aff767afe",
+        "rev": "1fe57adb3c536fb44b27e490dc3c7a8cbb9873b9",
         "type": "github"
       },
       "original": {
@@ -17,16 +17,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1661239211,
-        "narHash": "sha256-pNJzBlSNpWEiFJZnLF2oETYq8cGWx1DJPW33aMtG6n8=",
-        "owner": "NixOS",
+        "lastModified": 1661595788,
+        "narHash": "sha256-m87mpIxqALkxpXMQdowHPquUF1SiqCufjnKZK9tFZcs=",
+        "owner": "kekrby",
         "repo": "nixpkgs",
-        "rev": "5e804cd8a27f835a402b22e086e36e797716ef8b",
+        "rev": "a5fe34678f40ef37ca295da014db7d9aaea43a36",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "kekrby",
+        "ref": "add-fetchpartial",
         "repo": "nixpkgs",
         "type": "github"
       }
