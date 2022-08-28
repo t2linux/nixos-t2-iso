@@ -14,3 +14,10 @@ nix build .#t2-iso-minimal
 ```
 
 You need to have `nix` installed on a **Linux** host. If you are on macOS, you can use `podman` or `docker` with the `nixos/nix` image.
+
+Prebuilt isos are also available in the [releases page](releases).
+
+As iso files can be quite large depending on their content, they are split into multiple parts. You can join them with this command after downloading all the files for the variant you want:
+```
+cat t2-iso-<variant>.iso-part-* > t2-iso-<variant>.iso
+```
