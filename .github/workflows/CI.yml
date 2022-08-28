@@ -17,7 +17,7 @@ jobs:
       run: |
         for iso in $(nix flake show --json | nix run nixpkgs#jq -- -r keys[]); do
           nix build .#$iso
-          split -d result/iso/*.iso -b 2G $iso.iso-part-
+          split -d result/iso/*.iso -b 2147483647 $iso.iso-part-
           rm result
         done
     - name: Release
