@@ -6,7 +6,7 @@ This repo provides two isos:
 * `t2-iso-minimal`
 * `t2-iso-gnome`
 
-It is reccommended to use `t2-iso-minimal` for installing NixOS. `t2-iso-gnome` can be used to preview what the system will look after the installation.
+It is recommended to use `t2-iso-minimal` for installing NixOS. `t2-iso-gnome` can be used to preview what the system will look like after the installation.
 
 You can build with this command:
 ```
