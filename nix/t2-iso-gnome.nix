@@ -16,8 +16,6 @@
     alsa.enable = true;
   };
 
-  networking.networkmanager.wifi.backend = "iwd";
-
   # ZFS is broken and prevents building without this
   nixpkgs.config.allowBroken = true;
 
