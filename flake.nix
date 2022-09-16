@@ -2,7 +2,7 @@
   description = "A flake for NixOS iso's that work on T2 Macs";
 
   inputs = {
-    nixpkgs.url = "github:kekrby/nixpkgs/add-fetchpartial";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:kekrby/nixos-hardware";
   };
 
