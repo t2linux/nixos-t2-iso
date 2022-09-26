@@ -1,4 +1,4 @@
-## NixOS Iso for T2 Macs
+## NixOS Installers for T2 Macs
 
 This flake can be used to build a NixOS installer that can be used with T2 Macs.
 
