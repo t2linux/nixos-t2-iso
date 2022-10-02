@@ -23,5 +23,5 @@
         inherit nixos-hardware;
       };
     }).config.system.build.isoImage; 
-  }) (builtins.filter (x: x != null) (lib.attrsets.mapAttrsToList (key: value: if value == "regular" then ./nix/${key} else null) (builtins.readDir ./nix)));
+  }) (builtins.filter (x: x != null) (lib.attrsets.mapAttrsToList (key: value: if value == "regular" && lib.strings.hasInfix "iso" key then ./nix/${key} else null) (builtins.readDir ./nix)));
 }
