@@ -15,6 +15,13 @@ jobs:
       uses: actions/checkout@v3
     - name: "Install Nix"
       uses: cachix/install-nix-action@v17
+    - name: "Set Up Binary Cache"
+      if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      uses: cachix/cachix-action@v10
+      with:
+        name: t2linux
+        authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+        pushFilter: "x86_64-linux.iso$"
     - name: Build
       run: |
         for iso in $(nix flake show --json | nix run nixpkgs#jq -- -r keys[]); do
