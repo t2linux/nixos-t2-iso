@@ -18,7 +18,7 @@ jobs:
     - name: "Install Nix"
       uses: cachix/install-nix-action@v17
     - name: "Set Up Binary Cache"
-      if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      if: github.event_name != 'pull_request'
       uses: cachix/cachix-action@v10
       with:
         name: t2linux
