@@ -23,7 +23,7 @@ jobs:
       with:
         name: t2linux
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-        pushFilter: "x86_64-linux.iso$"
+        pushFilter: "(squashfs.img$|x86_64-linux.iso$)"
     - name: Build
       run: |
         for iso in $(nix flake show --json | nix run nixpkgs#jq -- -r keys[]); do
