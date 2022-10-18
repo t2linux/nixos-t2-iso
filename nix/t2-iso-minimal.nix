@@ -10,8 +10,4 @@
 
   # ZFS is broken and prevents building without this
   nixpkgs.config.allowBroken = true;
-
-  environment.systemPackages = with pkgs; [
-    vim 
-  ];
 }
