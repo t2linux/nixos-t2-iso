@@ -14,4 +14,7 @@
     git
     python3
   ];
+
+  # ZFS is (sometimes) broken and prevents building without this
+  nixpkgs.config.allowBroken = true;
 }

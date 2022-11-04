@@ -16,7 +16,4 @@
     pulse.enable = true;
     alsa.enable = true;
   };
-
-  # ZFS is broken and prevents building without this
-  nixpkgs.config.allowBroken = true;
 }
