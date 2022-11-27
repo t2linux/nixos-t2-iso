@@ -17,7 +17,7 @@ You can build with this command:
 nix build .#t2-iso-minimal
 ```
 
-You need to have `nix` installed on a **Linux** host. If you are on macOS, you can use `podman` or `docker` with the `nixos/nix` image.
+The build has to be done in Linux. If you are on macOS, you should do the build in a Linux VM.
 
 As ISO files can be quite large depending on their content, they are split into multiple parts. You can join them with this command after downloading all the files for the variant you want:
 ```
