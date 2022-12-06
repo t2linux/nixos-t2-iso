@@ -1,5 +1,5 @@
 {
-  description = "A flake for NixOS iso's that work on T2 Macs";
+  description = "A flake for building NixOS installers that work on T2 Macs";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
