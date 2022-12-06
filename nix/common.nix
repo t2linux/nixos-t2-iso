@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, modulesPath, nixos-hardware, ... }:
 
 {
+  imports = [
+    "${modulesPath}/installer/cd-dvd/channel.nix"
+    nixos-hardware.nixosModules.apple-t2
+  ];
+
   nix.settings = {
     trusted-substituters = [
       "https://t2linux.cachix.org"
