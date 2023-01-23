@@ -19,7 +19,7 @@ jobs:
       uses: cachix/install-nix-action@v18
     - name: "Set Up Binary Cache"
       if: github.event_name != 'pull_request'
-      uses: cachix/cachix-action@v10
+      uses: cachix/cachix-action@v12
       with:
         name: t2linux
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
