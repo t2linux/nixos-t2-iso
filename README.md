@@ -8,7 +8,7 @@ This repo provides two ISOs:
 
 It is recommended to use `t2-iso-minimal` for installing NixOS. `t2-iso-gnome` can be used to preview what the system will look like after the installation.
 
-Prebuilt installers are available in the [releases page](https://github.com/kekrby/nixos-t2-iso/releases).
+Prebuilt installers are available in the [releases page](https://github.com/t2linux/nixos-t2-iso/releases).
 
 As ISO files can be quite large depending on their content, they are split into multiple parts. You can join them with this command after downloading all the files for the variant you want:
 ```
