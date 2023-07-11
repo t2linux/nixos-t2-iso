@@ -30,6 +30,8 @@ jobs:
       env:
         GC_DONT_GC: 1
       run: |
+        sudo mount -o remount,size=30G /run/user/1001
+
         for iso in $(nix flake show --json | nix run nixpkgs#jq -- -r keys[]); do
           nix build .#$iso
           split -d result/iso/*.iso -b 1G $iso.iso-part-
