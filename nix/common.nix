@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     git
     python3
+    dmg2img
   ];
 
   # ZFS is (sometimes) broken and prevents building without this
