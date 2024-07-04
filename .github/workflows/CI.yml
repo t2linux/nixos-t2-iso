@@ -23,14 +23,14 @@ jobs:
         remove-codeql: 'true'
         remove-docker-images: 'true'
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: "Install Nix"
-      uses: cachix/install-nix-action@v18
+      uses: cachix/install-nix-action@v27
       with:
-        install_url: https://releases.nixos.org/nix/nix-2.13.3/install
+        install_url: https://releases.nixos.org/nix/nix-2.18.4/install
     - name: "Set Up Binary Cache"
       if: github.event_name != 'pull_request'
-      uses: cachix/cachix-action@v12
+      uses: cachix/cachix-action@v15
       with:
         name: t2linux
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
