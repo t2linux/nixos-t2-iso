@@ -39,13 +39,17 @@ jobs:
       env:
         GC_DONT_GC: 1
       run: |
-        for iso in $(nix flake show --json | nix run nixpkgs#jq -- -r keys[]); do
-          nix build .#$iso
-          split -d result/iso/*.iso -b 1G $iso.iso-part-
+        for output in $(nix flake show --json | nix run nixpkgs#jq -- -r 'keys[]'); do
+          nix build .#$output
+          if [ $(du -B1M result/iso/*.iso | cut -f1) -gt 2000 ]; then
+            split -d result/iso/*.iso -b 2000M nixos-$output.iso.part-
+          else
+            cp result/iso/*.iso nixos-$output.iso
+          fi
           rm result
         done
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, '.')
       with:
-        files: "*.iso-part-*"
+        files: "nixos-*.iso*"
