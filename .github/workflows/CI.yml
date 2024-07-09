@@ -4,9 +4,15 @@ on:
   push:
     paths-ignore:
       - "**.md"
+    branches:
+      - 'main'
+    tags:
+      - 'v*'
   pull_request:
     paths-ignore:
       - "**.md"
+    branches-ignore:
+      - 'dependabot/*'
 jobs:
   CI:
     runs-on: ubuntu-latest
