@@ -21,6 +21,7 @@
     git
     python3
     dmg2img
+    (pkgs.callPackage ./pkgs/firmware-script.nix {})
   ];
 
   # ZFS is (sometimes) broken and prevents building without this
