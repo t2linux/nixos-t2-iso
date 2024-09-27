@@ -1,4 +1,9 @@
-{ stdenvNoCC, fetchurl, lib }: stdenvNoCC.mkDerivation (final: {
+{
+  stdenvNoCC,
+  fetchurl,
+  lib,
+}:
+stdenvNoCC.mkDerivation (final: {
   pname = "get-apple-firmware";
   version = "fe8c338e6cf1238a390984ba06544833ab8792d3";
   src = fetchurl {

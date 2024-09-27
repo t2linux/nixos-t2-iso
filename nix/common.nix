@@ -1,4 +1,9 @@
-{ pkgs, modulesPath, nixos-hardware, ... }:
+{
+  pkgs,
+  modulesPath,
+  nixos-hardware,
+  ...
+}:
 
 {
   imports = [
@@ -7,21 +12,21 @@
   ];
 
   nix.settings = {
-    trusted-substituters = [
-      "https://t2linux.cachix.org"
-    ];
-    trusted-public-keys = [
-      "t2linux.cachix.org-1:P733c5Gt1qTcxsm+Bae0renWnT8OLs0u9+yfaK2Bejw="
-    ];
+    trusted-substituters = [ "https://t2linux.cachix.org" ];
+    trusted-public-keys = [ "t2linux.cachix.org-1:P733c5Gt1qTcxsm+Bae0renWnT8OLs0u9+yfaK2Bejw=" ];
 
-    experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+      "repl-flake"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     git
     python3
     dmg2img
-    (pkgs.callPackage ./pkgs/firmware-script.nix {})
+    (pkgs.callPackage ./pkgs/firmware-script.nix { })
   ];
 
   # ZFS is (sometimes) broken and prevents building without this
