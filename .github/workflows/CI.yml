@@ -6,7 +6,7 @@ on:
       - "**.md"
     branches:
       - 'main'
-  # this is needed when pushing tags manually, apparantly.
+  # this is needed when pushing tags manually, apparently.
   # https://github.com/actions/runner/issues/1007
   create:
   pull_request:
