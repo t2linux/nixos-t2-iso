@@ -48,7 +48,7 @@ jobs:
         GC_DONT_GC: 1
       run: |
         for output in $(nix flake show --json | nix run nixpkgs#jq -- -r 'keys[]'); do
-          nix build .#$output
+          nix build .#$output --accept-flake-config
           if [ $(du -B1M result/iso/*.iso | cut -f1) -gt 2000 ]; then
             split -d result/iso/*.iso -b 2000M nixos-$output.iso.part-
           else

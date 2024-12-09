@@ -6,6 +6,12 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
+  nixConfig = {
+    extra-trusted-substituters = [ "https://cache.soopy.moe" ];
+    extra-substituters = [ "https://cache.soopy.moe" ];
+    extra-trusted-public-keys = [ "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo=" ];
+  };
+
   outputs = { self, nixpkgs, nixos-hardware }:
   let
     system = "x86_64-linux";
