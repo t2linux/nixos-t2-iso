@@ -1,4 +1,4 @@
-{ pkgs, modulesPath, nixos-hardware, ... }:
+{ pkgs, modulesPath, nixos-hardware, lib, ... }:
 
 {
   imports = [
@@ -24,6 +24,6 @@
     (pkgs.callPackage ./pkgs/firmware-script.nix {})
   ];
 
-  # ZFS is (sometimes) broken and prevents building without this
-  nixpkgs.config.allowBroken = true;
+  # this branch disables zfs.
+  boot.supportedFilesystems.zfs = lib.mkForce false;
 }
