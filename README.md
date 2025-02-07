@@ -19,7 +19,7 @@ cat t2-iso-<variant>.iso-part-* > t2-iso-<variant>.iso
 
 You can build with this command:
 ```
-nix build .#t2-iso-minimal
+nix build .#packages.x86_64-linux.t2-iso-minimal
 ```
 
 The build has to be done in Linux. If you are on macOS, you should do the build in a Linux VM.
