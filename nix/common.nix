@@ -1,4 +1,9 @@
-{ pkgs, modulesPath, nixos-hardware, ... }:
+{
+  pkgs,
+  modulesPath,
+  nixos-hardware,
+  ...
+}:
 
 {
   imports = [
@@ -14,16 +19,20 @@
       "t2linux.cachix.org-1:P733c5Gt1qTcxsm+Bae0renWnT8OLs0u9+yfaK2Bejw="
     ];
 
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     git
     python3
     dmg2img
-    (pkgs.callPackage ./pkgs/firmware-script.nix {})
+    (pkgs.callPackage ./pkgs/firmware-script.nix { })
   ];
 
   # ZFS is (sometimes) broken and prevents building without this
   nixpkgs.config.allowBroken = true;
+  nixpkgs.hostPlatform = "x86_64-linux"; # t2 is x86_64-linux only
 }

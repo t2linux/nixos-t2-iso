@@ -12,22 +12,29 @@
     extra-trusted-public-keys = [ "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo=" ];
   };
 
-  outputs = { self, nixpkgs, nixos-hardware }:
-  let
-    system = "x86_64-linux";
-    inherit (nixpkgs) lib;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-hardware,
+    }:
+    let
+      inherit (nixpkgs) lib;
 
-    mergeMap = fn: list: lib.lists.foldr (a: b: a // b) {} (map fn list);
-  in
-  mergeMap (config: {
-    ${lib.strings.removeSuffix ".nix" (builtins.baseNameOf config)} = (lib.nixosSystem {
-      inherit system;
-
-      modules = [ config ];
-
-      specialArgs = {
-        inherit nixos-hardware;
-      };
-    }).config.system.build.isoImage; 
-  }) (builtins.filter (x: x != null) (lib.attrsets.mapAttrsToList (key: value: if value == "regular" && lib.strings.hasInfix "iso" key then ./nix/${key} else null) (builtins.readDir ./nix)));
+      system = "x86_64-linux";
+      isos = [
+        "gnome"
+        "minimal"
+      ];
+    in
+    {
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      packages.${system} = lib.genAttrs isos (
+        iso:
+        (lib.nixosSystem {
+          modules = [ (self + "/nix/t2-iso-${iso}.nix") ];
+          specialArgs = { inherit nixos-hardware; };
+        }).config.system.build.isoImage
+      );
+    };
 }
