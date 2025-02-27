@@ -29,6 +29,7 @@
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+
       packages.${system} = lib.genAttrs isos (
         iso:
         (lib.nixosSystem {

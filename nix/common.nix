@@ -29,10 +29,13 @@
     git
     python3
     dmg2img
-    (pkgs.callPackage ./pkgs/firmware-script.nix { })
+    (callPackage ./pkgs/firmware-script.nix { })
   ];
 
-  # ZFS is (sometimes) broken and prevents building without this
-  nixpkgs.config.allowBroken = true;
+  # Don't actually let broken stuff sneak into the ISO. If ZFS breaks, it actually breaks building the kernel (module)
+  # due to an upstream check and this wouldn't do anything to stop that from happening.
+  ## ZFS is (sometimes) broken and prevents building without this
+  ## nixpkgs.config.allowBroken = true;
+
   nixpkgs.hostPlatform = "x86_64-linux"; # t2 is x86_64-linux only
 }
