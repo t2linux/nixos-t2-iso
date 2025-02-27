@@ -5,10 +5,10 @@
 }:
 stdenvNoCC.mkDerivation (final: {
   pname = "get-apple-firmware";
-  version = "fe8c338e6cf1238a390984ba06544833ab8792d3";
+  version = "360156db52c013dbdac0ef9d6e2cebbca46b955b";
   src = fetchurl {
     url = "https://raw.github.com/t2linux/wiki/${final.version}/docs/tools/firmware.sh";
-    hash = "sha256-DYghvLnG3DO8WmLIrT4p5yzCDWRevp3vx0wYtdTLyeY=";
+    hash = "sha256-IL7omNdXROG402N2K9JfweretTnQujY67wKKC8JgxBo=";
   };
 
   dontUnpack = true;
