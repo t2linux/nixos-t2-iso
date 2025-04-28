@@ -34,11 +34,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: "Install Nix"
-      uses: cachix/install-nix-action@v30
+      uses: cachix/install-nix-action@v31
       with:
-        install_url: https://releases.nixos.org/nix/nix-2.18.4/install
+        install_url: https://releases.nixos.org/nix/nix-2.28.2/install
     - name: "Set Up Binary Cache"
-      uses: cachix/cachix-action@v15
+      uses: cachix/cachix-action@v16
       with:
         name: t2linux
         authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
